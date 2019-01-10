@@ -32,9 +32,8 @@ void PlayGame()
 	
 	//set number of guesses and loop for the number of turns asking for guesses
 
-	//TODO change for loop to while loop once we are validating tries
 	while(BCGame.GetCurrentTry() <= BCGame.GetMaxTries() && !BCGame.IsGameWon())
-	{//TODO make loop check values
+	{
 		FText Guess = GetValidGuess();
 		
 		// submit valid guess to the game 
@@ -42,7 +41,6 @@ void PlayGame()
 		
 		std::cout << "Bulls: " << BullCowCount.Bulls << " Cows: " << BullCowCount.Cows << std::endl << std::endl;
 	}
-	//TODO summarize the game
 	if (BCGame.IsGameWon())
 		std::cout << "Congratulations! You've guessed the right word!\n";
 	else if (BCGame.GetCurrentTry() >= BCGame.GetMaxTries()) {

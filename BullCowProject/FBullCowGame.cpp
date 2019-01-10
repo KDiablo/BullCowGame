@@ -6,9 +6,7 @@ using int32 = int;
 
 void FBullCowGame::Reset()
 {
-	constexpr int32 MAX_TRIES = 8;
-	const FString HIDDEN_WORD = "house";
-	MyMaxTries = MAX_TRIES;
+	const FString HIDDEN_WORD = "ant";
 	MyHiddenWord = HIDDEN_WORD;
 	MyCurrentTry = 1;
 	bIsGameWon = false;
@@ -33,7 +31,6 @@ FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
 			}
 		}
 	}	
-	//return BullCowCount
 	if (BullCowCount.Bulls == GetHiddenWordLength()) {
 		bIsGameWon = true;
 	}
@@ -60,7 +57,12 @@ bool FBullCowGame::IsIsogram(FString Guess) const
 
 FBullCowGame::FBullCowGame() { Reset(); }
 
-int32 FBullCowGame::GetMaxTries() const { return MyMaxTries; }
+int32 FBullCowGame::GetMaxTries() const {
+
+	TMap<int32, int32> WorldLengthToMaxTries{ {3,4}, {4,7}, {5,10}, {6,16}, {7,20} };
+	return WorldLengthToMaxTries[MyHiddenWord.length()];
+
+}
 
 int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
 
