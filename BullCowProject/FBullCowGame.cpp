@@ -1,6 +1,9 @@
+#pragma once
 #include "FBullCowGame.h"
 #include <map>
 #define TMap std::map
+
+//to make syntax Unreal friendly
 using FString = std::string;
 using int32 = int;
 
